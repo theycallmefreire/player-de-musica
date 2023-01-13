@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600&family=Raleway:ital,wght@1,100&family=Roboto:wght@400;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*no meu pc isso não funcionou, mas é a vida, talvez no seu funcione*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-fontsmoothing: grayscale;
+}
+body{
+  background-color: #0F0D13;
+}
+body *{
+  font-size: 'roboto', sans-serif;
+}
+
+#content{
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-template-areas: 
+  'A B'
+  'A C';
+  gap: 32px;
+  place-content: center;
+  height: 100vh;
+}
+/* PLAYER 1 */
+#player1{
+  grid-area: A;
+  padding: 50px 38px;
+}
+#player1 img{
+  width: 180px;
+  height: 180px;
+ 
+ border-radius: 6px;
+}
+#player1 .wreapper{
+  width: 190px;
+}
+#player1 .info{
+  margin-top: 28px;
+}
+/* PLAYER 2 */
+#player2{
+  grid-area: B;
+  height: fit-content;
+}
+/* PLAYER 3 */
+#player3{
+  grid-area: C;
+}
+
+.player{
+  background-color: #2A2141;
+  padding: 28px;
+  border-radius: 10px;
+}
+.player img{
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+ 
+  border-radius: 6px;
+}
+.info{
+  color: #E1E1E6;
+}
+.info h1{
+  font-size: 24px;
+  margin-bottom: 9.6px;
+}
+.info p{
+  opacity: 0.67;
+  font-size: 19px;
+}
+.info-wrepper{
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.controls{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+.horizontal .controls {
+  padding-inline: 58px;
+}
+.track{
+  position: relative;
+  margin-top: 28px;
+}
+/*pseodo elemento: cria um elemento no html pelo css sem nececidade de escrever no html*/
+.track::before{
+  /*o css entende o conteudo do html como bloco, então ele precisa ter certas propriedades pra funcionar*/
+  content: '';/*precisa ter o content mesmo que vasio!*/
+  height: 6px;
+  width: 100%;
+  display: block;
+  background: #D9D9D9;
+  opacity: 0.3;
+  border-radius: 10px;
+
+  position: absolute;
+}
+.track::after{
+  content: '';
+  height: 6px;
+  width: 80%;
+  display: block;
+  background: #D9D9D9;
+  border-radius: 10px;
+
+}
+.time{
+  display: flex;
+  justify-content: space-between;
+
+  font-size:  14px;
+  opacity:  0.7;
+  color: #C4C4CC;
+
+  margin-top: 9.6px;
+  
+}
+/*reaguste para mobale*/
+@media (max-width: 670px){
+  #content{
+    display: flex;
+    flex-direction: column;
+
+    max-width: 270px;
+    margin: auto;
+
+    height: auto;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .horizontal .controls{
+    padding-inline: 0px;
+  }
+}
